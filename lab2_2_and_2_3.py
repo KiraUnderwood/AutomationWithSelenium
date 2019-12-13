@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 
-
 '''
 Task2:
 Java: Create two TestNg config files, the first one runs all “Smoke” test, the second runs “Regression”.
@@ -27,6 +26,7 @@ In Python:
 @python.yield_fixture / @python.fixture  represents setup and tear down of the driver
 
 '''
+
 
 @pytest.yield_fixture(scope="session")
 def driver():
@@ -54,8 +54,6 @@ class TestGroupTestsSmoke:
         assert driver.find_element_by_id("iframe").is_displayed()
 
 
-
-
 class TestGroupTestsRegression:
 
     @pytest.mark.regression
@@ -70,7 +68,6 @@ class TestGroupTestsRegression:
     @pytest.mark.regression
     def test_find_a_frame(self, driver):
         assert driver.find_element_by_id("iframe").is_displayed()
-
 
 
 class TestGroupTestsMixed:
@@ -89,7 +86,6 @@ class TestGroupTestsMixed:
         assert driver.find_element_by_id("iframe").is_displayed()
 
 
-
 class TestGroupTestsBoth:
     @pytest.mark.smoke
     @pytest.mark.regression
@@ -106,9 +102,3 @@ class TestGroupTestsBoth:
     @pytest.mark.regression
     def test_find_a_frame(self, driver):
         assert driver.find_element_by_id("iframe").is_displayed()
-
-
-
-
-
-
