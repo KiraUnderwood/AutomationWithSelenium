@@ -1,3 +1,4 @@
+pytest-bdd
 allure-pytest==2.8.6
 allure-python-commons==2.8.6
 apipkg==1.5
