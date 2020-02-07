@@ -6,3 +6,6 @@ PageObject/__pycache__/*
 WithSplinterAndPyPOM/__pycache__/*
 debug.log
 WithSplinterAndPyPOM/Userskira_podlesnaiaDesktopAllure
+Gherkin/__pycache__/*
+Gherkin/tests/__pycache__/*
+
