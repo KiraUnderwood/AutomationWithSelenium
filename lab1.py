@@ -24,6 +24,7 @@ class EpamPageTestSuite(unittest.TestCase):
         time.sleep(5)
 
     def test_perform_login(self):
+
         self.driver.find_element_by_id("user-icon").click()
         login = self.driver.find_element_by_tag_name('input[id="name"]').send_keys("epam")
         pwd = self.driver.find_element_by_tag_name('input[id="password"]').send_keys("1234")

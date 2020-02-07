@@ -14,9 +14,11 @@ def driver():
     yield driver
     driver.close()
 
+
 @pytest.fixture(scope="function", params=[0, 1, 2, 3])
 def idx_number(request):
     return request.param
+
 
 class TestEpamPageTestSuite:
     '''
@@ -30,7 +32,6 @@ class TestEpamPageTestSuite:
         '''
 
     @pytest.mark.parametrize("idx", [0, 1, 2, 3])
-
     def test_texts_below_icon_elements(self, driver, idx):
         expected = ['To include good practices\nand ideas from successful\nEPAM project',
                     'To be flexible and\ncustomizable', 'To be multiplatform',
@@ -39,4 +40,3 @@ class TestEpamPageTestSuite:
         get_text = driver.find_elements_by_css_selector(".col-sm-3 .benefit-txt")[idx]
         print(get_text.text)
         assert get_text.text in expected
-
