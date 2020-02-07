@@ -1,0 +1,27 @@
+To engage the test in a CI the following was done:
+
+1. install Jenkins
+- install Docker for Windows
+- run Jenkins docker-container:
+docker run  -u root  --rm  -d -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home   -v /var/run/docker.sock:/var/run/docker.sock  -v "C:\Users\kira_podlesnaia\Desktop\PyProjects\AutomationWithSelenium":/home  jenkins/jenkins
+
+2. install Allure plugin for Jenkins
+
+Manage Jenkins - > Global Tool Configuration - > enable Allure commandline
+
+3. setup local machine ( on which Jenkins in docker runs) as a Jenkins slave
+
+Manage Jenkins - > Manage Nodes and Clouds - > New Node
+connect using Java - > port 50000 should be forwarded between container and local machine
+
+4. create a pipeline (groovy script in this folder)
+
+p.s. its odd that the Jenkins plugin searches for the Allure result files exactly on this path: c:\user\*user-name*\workspace\pytest\allure-results
+     in pytest.ini the following does not work for some reason: addopts = --alluredir=C:\Users\kira_podlesnaia\Desktop\Allure
+
+
+
+For Allure on Windows:
+ 1. install JDK
+ 2. add Java_Home env var
+ 3. install Allure
